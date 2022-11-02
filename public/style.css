@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+}
+
+body {
+    background: rgb(255, 250, 250);
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    position: relative;
+}
+
+p {
+    margin-bottom: 1em;
+    font-weight: 300;
+}
+
+figcaption {
+    font-size: .8em;
+    color: rgb(87, 87, 87);
+}
+
+header {
+    background: rgba(90, 90, 90, 0.405);
+    color: white;
+    padding: 1em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    z-index: 20;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    font-size: .8em;
+    padding: .5em;
+}
+
+.page-home header {
+    font-size: 1.5em;
+    background: none;
+    padding-right: 10%;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 1em;
+    list-style: none;
+}
+
+header nav ul li a {
+    border-bottom: 0px solid white;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: inherit;
+    transition: text-shadow .5s, border-width 0.3s linear;
+    ;
+}
+
+header nav ul li:hover a {
+    text-shadow: 0 0 10px #FFFFFF;
+    border-bottom: 5px solid white;
+}
+
+
+section.top {
+    padding-top: 60px;
+    height: 100vh;
+    background: url(assets/kusama-home-bg.jpg);
+    color: white;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+
+}
+
+section.top div.content {
+    padding-left: 10%;
+    padding-bottom: 10%;
+    z-index: 20;
+}
+
+section h1 {
+    font-size: 5em;
+}
+
+
+/* ----- About  -----*/
+section.about {
+    height: 200px;
+    padding-bottom: 0;
+}
+
+section.about div.content {
+    padding-bottom: 1em;
+}
+
+section.about h1 {
+    font-size: 3em;
+}
+
+main.main-about {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.main-about section.main {
+    width: 70%;
+    padding: 2em;
+}
+
+.main-about section.main figure {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 1em auto;
+}
+
+.main-about section.main img {
+    width: 100%;
+}
+
+.main-about aside {
+    padding: 2em;
+    max-width: 500px;
+}
+
+.main-about aside section {
+    border-radius: 30px;
+    box-shadow: -0 0 15px 0 rgba(0, 0, 0, 0.318);
+    padding: 2em;
+}
+
+.main-about aside h2 {
+    font-size: 1.6em;
+    margin-bottom: 1em;
+
+}
+
+
+/* Flashlight animation on home page */
+#flashlight-wrapper {
+    width: 100%;
+    height: 100%;
+    cursor: none;
+    --cursorX: 50vw;
+    --cursorY: 50vh;
+}
+
+#flashlight-zone:before {
+    z-index: 2;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    pointer-events: none;
+    background: radial-gradient(circle 15vmax at var(--cursorX) var(--cursorY),
+            rgba(0, 0, 0, 0) 100%,
+            rgba(0, 0, 0, .9) 100%)
+}
+
+/* ----- Works  -----*/
+.portfolio-image {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 100%;
+    transition: width 1s;
+}
+
+.portfolio-image.active figcaption {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, .7);
+    padding: 1em;
+    color: white;
+    transform: translateY(100%);
+    transition: .8s;
+}
+
+.portfolio-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.portfolio-image.active {
+    width: 100%;
+}
+
+.portfolio-image.active:hover figcaption {
+    display: block;
+    transform: translateY(0);
+}
+
+#portfolio .slider {
+    max-width: 1000px;
+    margin: 0 auto;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+
+#portfolio {
+    margin: 2em auto;
+    position: relative;
+    max-width: 1200px;
+    height: 400px;
+}
+
+#portfolio button {
+    width: 100px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.318);
+    transition: .5s;
+    cursor: pointer;
+}
+
+#portfolio button:hover {
+    color: rgb(0, 0, 0);
+}
+
+button#previous {
+    left: 0;
+}
+
+button#next {
+    right: 0;
+}
